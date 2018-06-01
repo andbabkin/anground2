@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Skill } from '../skill';
+import { SKILLS } from '../mock-skills';
 
 @Component({
   selector: 'app-skills',
@@ -7,14 +8,15 @@ import { Skill } from '../skill';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
-  skill: Skill = {
-    id: 1,
-    name: 'Sql',
-    desc: 'Experience in creating SQL queries starts from 2000. Till 2015 it was mostly Oracle SQL. '
-      + 'Also worked on MySQL, MSSQL and PostgreSQL.'
-  };
+  skills = SKILLS;
+  selectedSkill: Skill;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(s: Skill): void {
+    this.selectedSkill = s;
   }
 }
