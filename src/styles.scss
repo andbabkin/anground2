@@ -15,6 +15,25 @@ button:active, button:focus {
   outline: 0;
 }
 
+/* Colors */
+$primary: #00897B;
+$accent: #FDD835;
+$warning: #FF5722;
+.app-primary {
+  color: white;
+  background-color: $primary;
+}
+.app-accent {
+  color: black;
+  background-color: $accent;
+}
+.app-warning {
+  color: white;
+  background-color: $warning;
+}
+
+
+
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }

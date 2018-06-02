@@ -5,30 +5,15 @@
 
         <div class="col-md-6">
             <ul class="skills">
-                <li *ngFor="let s of skills" (click)="onSelect(s)" [class.selected]="s === selectedSkill">
-                    <span class="badge">{{ s.id }}</span> {{ s.name }}
+                <li *ngFor="let s of skills" (click)="onSelect(s)" class=""
+                    [class.selected]="s === selectedSkill">
+                    <span class="badge app-primary">{{ s.id }}</span> {{ s.name }}
                 </li>
             </ul>
         </div>
 
         <div class="col-md-6">
-            <mat-card class="skill-card" *ngIf="selectedSkill">
-              <mat-card-header>
-                <mat-card-title>{{ selectedSkill.name | uppercase }} Details</mat-card-title>
-                <mat-card-subtitle>
-                  Id: {{selectedSkill.id}}
-                </mat-card-subtitle>
-              </mat-card-header>
-
-              <mat-card-content>
-                  <p class="fixed-h">{{selectedSkill.desc}}</p>
-                  <hr class="my-4">
-                  <mat-form-field hintLabel="Max 255 characters">
-                      <textarea matInput #input1 [(ngModel)]="selectedSkill.desc" [rows]="5" maxlength="255" placeholder="Enter skill description"></textarea>
-                      <mat-hint align="end" class="text-right">{{input1.value?.length || 0}}/255</mat-hint>
-                  </mat-form-field>
-              </mat-card-content>
-            </mat-card>
+            <app-skill-detail [skill]="selectedSkill" *ngIf="selectedSkill"></app-skill-detail>
             <mat-card class="skill-card" *ngIf="!selectedSkill">
                 <mat-card-header>
                     <mat-card-title>Select skill to see details.</mat-card-title>
