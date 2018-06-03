@@ -9,7 +9,6 @@ import { SkillService } from '../skill.service';
 })
 export class SkillsComponent implements OnInit {
   skills: Skill[];
-  selectedSkill: Skill;
 
   constructor(private skillService: SkillService) { }
 
@@ -19,9 +18,5 @@ export class SkillsComponent implements OnInit {
 
   getSkills(): void {
     this.skillService.getSkills().subscribe( skills => this.skills = skills );
-  }
-
-  onSelect(s: Skill): void {
-    this.selectedSkill = s;
   }
 }

@@ -14,6 +14,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { SkillDetailComponent } from './skill-detail/skill-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     MbuttonsComponent,
     SkillsComponent,
     SkillDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,

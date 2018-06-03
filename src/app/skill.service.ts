@@ -16,4 +16,9 @@ export class SkillService {
     this.messageService.add('SkillService: fetched skills');
     return of(SKILLS);
   }
+
+  getSkill(id: number): Observable<Skill> {
+    this.messageService.add(`SkillService: fetched skill id=${id}`);
+    return of(SKILLS.find(skill => skill.id === id));
+  }
 }

@@ -1,17 +1,23 @@
-<mat-card class="skill-card" *ngIf="skill">
-  <mat-card-header>
-    <mat-card-title><i class="material-icons md-18">label_important</i> {{ skill.name | uppercase }} Details</mat-card-title>
-    <mat-card-subtitle>
-      Id: {{skill.id}}
-    </mat-card-subtitle>
-  </mat-card-header>
+<div class="main-div">
+  <mat-card class="skill-card" *ngIf="skill">
+    <mat-card-header>
+      <mat-card-title><i class="material-icons md-18">label_important</i> {{ skill.name | uppercase }} Details</mat-card-title>
+      <mat-card-subtitle>
+        Id: {{skill.id}}
+      </mat-card-subtitle>
+    </mat-card-header>
 
-  <mat-card-content>
-    <p class="fixed-h">{{skill.desc}}</p>
-    <hr class="my-4">
-    <mat-form-field hintLabel="Max 255 characters">
-      <textarea matInput #input1 [(ngModel)]="skill.desc" [rows]="5" maxlength="255" placeholder="Enter skill description"></textarea>
-      <mat-hint align="end" class="text-right">{{input1.value?.length || 0}}/255</mat-hint>
-    </mat-form-field>
-  </mat-card-content>
-</mat-card>
+    <mat-card-content>
+      <p class="fixed-h">{{skill.desc}}</p>
+      <hr class="my-4">
+      <mat-form-field hintLabel="Max 255 characters">
+        <textarea matInput #input1 [(ngModel)]="skill.desc" [rows]="5" maxlength="255" placeholder="Enter skill description"></textarea>
+        <mat-hint align="end" class="text-right">{{input1.value?.length || 0}}/255</mat-hint>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button class="mat-primary" (click)="goBack()">BACK</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

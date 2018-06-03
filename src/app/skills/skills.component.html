@@ -1,25 +1,10 @@
-<div class="container">
-    <h2>My Skills</h2>
-
-    <div class="row">
-
-        <div class="col-md-6">
-            <ul class="skills">
-                <li *ngFor="let s of skills" (click)="onSelect(s)" class=""
-                    [class.selected]="s === selectedSkill">
-                    <span class="badge app-primary">{{ s.id }}</span> {{ s.name }}
-                </li>
-            </ul>
-        </div>
-
-        <div class="col-md-6">
-            <app-skill-detail [skill]="selectedSkill" *ngIf="selectedSkill"></app-skill-detail>
-            <mat-card class="skill-card" *ngIf="!selectedSkill">
-                <mat-card-header>
-                    <mat-card-title>Select skill to see details.</mat-card-title>
-                </mat-card-header>
-            </mat-card>
-        </div>
-
-    </div>
+<h2 class="text-center">My Skills</h2>
+<div class="main-div">
+    <ul class="skills">
+        <li *ngFor="let s of skills">
+            <a routerLink="/detail/{{s.id}}">
+                <span class="badge app-primary">{{ s.id }}</span> {{ s.name }}
+            </a>
+        </li>
+    </ul>
 </div>
