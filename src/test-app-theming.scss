@@ -1,0 +1,90 @@
+@import '~@angular/material/theming';
+
+// Include the common styles for Angular Material.
+@include mat-core();
+
+// Mixin to create a set of classes for defined palette
+@mixin create-themed-classes($palette, $palette-name) {
+  .app-#{$palette-name} {
+    color: mat-color($palette, default-contrast);
+    background-color: mat-color($palette);
+    &:hover { color: mat-color($palette, default-contrast); }
+  }
+  .app-#{$palette-name}-default { background-color: mat-color($palette); }
+  .app-#{$palette-name}-darker { background-color: mat-color($palette, darker); }
+  .app-#{$palette-name}-lighter { background-color: mat-color($palette, lighter); }
+  .app-#{$palette-name}-hover {
+    transition: background-color 400ms;
+    &:hover {
+      background-color: mat-color($palette, lighter);
+      cursor: pointer;
+      color: mat-color($palette, lighter-contrast);
+    }
+  }
+}
+
+// Mixin to apply theme to themed elements
+@mixin set-app-theme($theme) {
+  $th-primary: map-get($theme, primary);
+  $th-accent: map-get($theme, accent);
+  $th-warn: map-get($theme, warn);
+  /*$th-foreground: map-get($theme, foreground);
+  $th-background: map-get($theme, background);*/
+
+  @include create-themed-classes($th-primary, 'primary');
+  @include create-themed-classes($th-accent, 'accent');
+  @include create-themed-classes($th-accent, 'warn');
+}
+
+// Theme selection drop-down menu item mixin
+@mixin generate-menu-item($theme, $theme-name){
+  #theme-#{$theme-name}-menu-item {
+    background-color: map-get(map-get($theme, background), background);
+    .app-menu-item {
+      background-image: linear-gradient(
+                      to right,
+                      mat-color(map-get($theme, primary)),
+                      mat-color(map-get($theme, accent))
+      );
+    }
+  }
+}
+
+// Default colors
+$test-app-primary: mat-palette($mat-teal, 600, 200, 800);
+$test-app-accent: mat-palette($mat-yellow, 600, 200, 800);
+$test-app-warn: mat-palette($mat-deep-orange); /*500, 100, 700*/
+// Default theme
+$test-app-theme: mat-light-theme($test-app-primary, $test-app-accent, $test-app-warn);
+// Include theme styles for core and each component used in the app.
+@include angular-material-theme($test-app-theme);
+@include set-app-theme($test-app-theme);
+@include generate-menu-item($test-app-theme, 'default');
+
+// Alternate theme 1
+$alt1-primary: mat-palette($mat-green, 800, 300, 900);
+$alt1-theme: mat-light-theme($alt1-primary, $test-app-accent, $test-app-warn);
+.alt1-theme {
+  @include angular-material-theme($alt1-theme);
+  @include set-app-theme($alt1-theme);
+}
+@include generate-menu-item($alt1-theme, 'alt1');
+
+// Alternate theme 2
+/*$alt2-accent: mat-palette($mat-green, A400, A200, A700);*/
+$alt2-theme: mat-dark-theme($alt1-primary, $test-app-accent, $test-app-warn);
+.alt2-theme {
+  @include angular-material-theme($alt2-theme);
+  @include set-app-theme($alt2-theme);
+}
+@include generate-menu-item($alt2-theme, 'alt2');
+
+// Alternate theme 3
+$alt3-primary: mat-palette($mat-cyan, 700, 200, 900);
+$alt3-accent: mat-palette($mat-light-green, 600, 200, 800);
+$alt3-theme: mat-light-theme($alt3-primary, $alt3-accent, $test-app-warn);
+.alt3-theme {
+  @include angular-material-theme($alt3-theme);
+  @include set-app-theme($alt3-theme);
+}
+@include generate-menu-item($alt3-theme, 'alt3');

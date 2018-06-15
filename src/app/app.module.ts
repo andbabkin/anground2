@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule,
+  MatListModule, MatMenuModule, MatToolbarModule } from '@angular/material';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -29,7 +30,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule, BrowserAnimationsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     NgbModule.forRoot(),
-    MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule,
+    MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatToolbarModule, MatMenuModule,
     FormsModule,
     AppRoutingModule
   ],

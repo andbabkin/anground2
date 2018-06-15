@@ -6,15 +6,7 @@
   display: block;
   padding: 20px;
   text-align: center;
-  color: #eee;
   max-height: 120px;
   min-width: 120px;
-  background-color: #00897B;
   border-radius: 2px;
-  transition: background-color 400ms;
-  &:hover {
-    background-color: #B2DFDB;
-    cursor: pointer;
-    color: #004D40;
-  }
 }

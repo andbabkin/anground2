@@ -1,10 +1,15 @@
+@import "./test-app-theming";
+
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  margin: 2em;
+  margin: 56px 15px 15px 15px;
   color: #666;
+}
+@media (min-width: 599px) {
+  body { margin-top: 64px; }
 }
 
 h1, h2, h3 {
@@ -15,21 +20,8 @@ button:active, button:focus {
   outline: 0;
 }
 
-/* Colors */
-$primary: #00897B;
-$accent: #FDD835;
-$warning: #FF5722;
-.app-primary {
-  color: white;
-  background-color: $primary;
-}
-.app-accent {
-  color: black;
-  background-color: $accent;
-}
-.app-warning {
-  color: white;
-  background-color: $warning;
+a:hover {
+  text-decoration: none;
 }
 
 /* Rules for sizing the icon. */

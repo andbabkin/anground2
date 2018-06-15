@@ -1,8 +1,24 @@
-<h1 class="text-center my-4"><i class="material-icons">grade</i> {{ title }} <i class="material-icons">grade</i></h1>
-<nav class="test-btn-group my-2">
-    <a mat-stroked-button class="mat-primary" routerLink="/dashboard">Dashboard</a>
-    <a mat-stroked-button class="mat-primary" routerLink="/list">Skills</a>
-</nav>
+<div class="app-bar mat-elevation-z6">
+    <mat-toolbar color="primary">
+        <span>{{ title }}</span>
+        <div class="flex-spacer"></div>
+        <nav>
+            <a mat-button class="app-primary" routerLink="/dashboard">Home</a>
+            <a mat-button class="app-primary" routerLink="/list">Skills</a>
+            <a mat-button class="app-primary" routerLink="/mb">MB</a>
+            <button mat-button [matMenuTriggerFor]="thmenu" class="app-primary">
+                <mat-icon>format_color_fill</mat-icon>
+            </button>
+        </nav>
+    </mat-toolbar>
+</div>
+<mat-menu #thmenu="matMenu">
+    <button mat-menu-item *ngFor="let theme of themes"
+            [id]="'theme-' + theme + '-menu-item'"
+            (click)="onClickTheme(theme)">
+        <span class="app-menu-item"></span>
+    </button>
+</mat-menu>
 <router-outlet></router-outlet>
 <hr class="my-4">
 <app-messages></app-messages>

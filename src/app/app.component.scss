@@ -1,3 +1,26 @@
-a:hover {
-  text-decoration: none;
+.app-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  span, div {
+    display: none;
+  }
+
+  @media (min-width: 576px) {
+    span { display: inline; }
+    div { display: block; }
+  }
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.app-menu-item {
+  display: inline-block;
+  border: 1px solid #333;
+  width: 100%;
+  height: 18px;
 }
